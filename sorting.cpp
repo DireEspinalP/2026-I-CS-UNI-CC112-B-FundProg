@@ -4,20 +4,32 @@
 
 using namespace std;
 
-void intercambiar(ContainerElemType& a, ContainerElemType& b){
-    ContainerElemType temp = a;
+void intercambiar(ContainerElemType1& a, ContainerElemType1& b){
+    ContainerElemType1 temp = a;
     a = b;
     b = temp;
 }
 
-void PrintArray(ContainerElemType arr[], ContainerRange n){
+void intercambiar(ContainerElemType2& a, ContainerElemType2& b){
+    ContainerElemType2 temp = a;
+    a = b;
+    b = temp;
+}
+
+void PrintArray(ContainerElemType1 arr[], ContainerRange n){
+    for (auto i = 0; i < n; ++i)
+        cout << arr[i] << " ";
+    cout << endl;
+}
+
+void PrintArray(ContainerElemType2 arr[], ContainerRange n){
     for (auto i = 0; i < n; ++i)
         cout << arr[i] << " ";
     cout << endl;
 }
 
 // Bubble  
-void BurbujaClasico(ContainerElemType arr[], ContainerRange n) {
+void BurbujaClasico(ContainerElemType1 arr[], ContainerRange n) {
     if (n <= 1)
         return;
     for (auto i = 0; i < n - 1; ++i)
@@ -26,28 +38,58 @@ void BurbujaClasico(ContainerElemType arr[], ContainerRange n) {
                 intercambiar(arr[i], arr[j]);
 }
 
-// // Bubble
-// void BurbujaRecursivo(ContainerElemType* arr, ContainerRange n, CompFunc pComp) {
-//     if (n <= 1)
-//         return;
-//     for (auto j = 1; j < n; ++j)
-//         if ( (*pComp)(arr[j], arr[0]) )
-//             intercambiar(arr[0], arr[j]);
-//     BurbujaRecursivo(arr+1, n-1, pComp);
-// }
+void BurbujaClasico(ContainerElemType2 arr[], ContainerRange n) {
+    if (n <= 1)
+        return;
+    for (auto i = 0; i < n - 1; ++i)
+        for (auto j = i+1; j < n; ++j)
+            if( arr[i] > arr[j] )                   // if ( (*pComp)(arr[i], arr[j]) )
+                intercambiar(arr[i], arr[j]);
+}
+
+// Bubble
+void BurbujaRecursivo(ContainerElemType1* arr, ContainerRange n) {
+    if (n <= 1)
+        return;
+    for (auto j = 1; j < n; ++j)
+        if ( arr[0] > arr[j] )                   // if ( (*pComp)(arr[j], arr[0]) )
+            intercambiar(arr[0], arr[j]);
+    BurbujaRecursivo(arr+1, n-1);
+}
+
+void BurbujaRecursivo(ContainerElemType2* arr, ContainerRange n) {
+    if (n <= 1)
+        return;
+    for (auto j = 1; j < n; ++j)
+        if ( arr[0] > arr[j] )                   // if ( (*pComp)(arr[j], arr[0]) )
+            intercambiar(arr[0], arr[j]);
+    BurbujaRecursivo(arr+1, n-1);
+}
 
 void DemoBurbuja(){
     cout << "DemoBurbuja \n";
-    ContainerElemType arr[] = {5, 2, 8, 1, 15, 9, 4, 7, 3, 6};
-    auto n = sizeof(arr) / sizeof(arr[0]);
 
-    PrintArray(arr, n);
-    BurbujaClasico(arr, n);
-    PrintArray(arr, n);
+    cout << "BurbujaClasico \n";
+    ContainerElemType1 arr1[] = {5, 2, 8, 1, 15, 9, 4, 7, 3, 6};
+    auto n1 = sizeof(arr1) / sizeof(arr1[0]);
 
-    // BurbujaRecursivo(arr, n, &Mayor);
-    // cout << "Array ordenado Ascendente:\n";
-    // PrintArray(arr, 10, cout);
+    PrintArray(arr1, n1);
+    BurbujaClasico(arr1, n1);
+    PrintArray(arr1, n1);
+
+    cout << "BurbujaRecursivo \n";
+    ContainerElemType1 arr2[] = {5, 2, 8, 1, 15, 9, 4, 7, 3, 6};
+    auto n2 = sizeof(arr2) / sizeof(arr2[0]);
+
+    PrintArray(arr2, n2);
+    BurbujaRecursivo(arr2, n2);
+    PrintArray(arr2, n2);
+
+    ContainerElemType2 arr3[] = {5.2, 7.5, 8.1, 1.9, 8.9, 9.1, 4.4, 7.7, 3.3, 6.6};
+    auto n3 = sizeof(arr3) / sizeof(arr3[0]);
+    BurbujaRecursivo(arr3, n3);
+    cout << "Array ordenado Ascendente:\n";
+    PrintArray(arr3, n3);
 
     // BurbujaRecursivo(arr, n, &Menor);
     // cout << "Array ordenado Descendente:\n";
@@ -56,7 +98,7 @@ void DemoBurbuja(){
     // cout << endl;
 }
 
-// ContainerRange particionar(ContainerElemType* arr, ContainerRange first, ContainerRange last, CompFunc pComp) {
+// ContainerRange particionar(ContainerElemType1* arr, ContainerRange first, ContainerRange last, CompFunc pComp) {
 //     auto pivote = arr[last];  // Pivote es el elemento de referencia
 //     auto i = (first - 1);
 
@@ -71,7 +113,7 @@ void DemoBurbuja(){
 // }
 
 
-// void QuickSort(ContainerElemType* arr, ContainerRange first, ContainerRange last, CompFunc pComp) {
+// void QuickSort(ContainerElemType1* arr, ContainerRange first, ContainerRange last, CompFunc pComp) {
 //     if (first < last) {
 //         auto pi = particionar(arr, first, last, pComp);
 //         QuickSort(arr, first, pi - 1, pComp);
@@ -81,7 +123,7 @@ void DemoBurbuja(){
 
 // void DemoQuickSort() {
 //     cout << "DemoQuickSort \n";
-//     ContainerElemType arr[] = {5, 2, 8, 15, 1, 9, 4, 7, 3, 6};
+//     ContainerElemType1 arr[] = {5, 2, 8, 15, 1, 9, 4, 7, 3, 6};
 //     auto n = sizeof(arr) / sizeof(arr[0]);
 
 //     QuickSort(arr, 0, n - 1, &Mayor);
@@ -96,7 +138,7 @@ void DemoBurbuja(){
 // }
 
 // // Función para mezclar dos subarreglos ordenados de arr[].
-// void Merge(ContainerElemType* arr, const ContainerRange left, 
+// void Merge(ContainerElemType1* arr, const ContainerRange left, 
 //                                    const ContainerRange mid, 
 //                                    const ContainerRange right, 
 //                                    CompFunc pComp) {
@@ -104,8 +146,8 @@ void DemoBurbuja(){
 //     auto const subArrayTwo = right - mid;
 
 //     // Crear arrays temporales
-//     auto *leftArray = new ContainerElemType[subArrayOne],
-//          *rightArray = new ContainerElemType[subArrayTwo];
+//     auto *leftArray = new ContainerElemType1[subArrayOne],
+//          *rightArray = new ContainerElemType1[subArrayTwo];
 
 //     // Copiar datos a los arrays temporales leftArray[] y rightArray[]
 //     for (auto i = 0; i < subArrayOne; i++)
@@ -147,7 +189,7 @@ void DemoBurbuja(){
 
 // // left es para el índice izquierdo y right es para el índice derecho del
 // // sub-array de arr a ordenar
-// void MergeSort( ContainerElemType* arr, 
+// void MergeSort( ContainerElemType1* arr, 
 //                 ContainerRange const begin, 
 //                 ContainerRange const end,
 //                 CompFunc pComp) {
@@ -162,7 +204,7 @@ void DemoBurbuja(){
 
 // void DemoMergeSort(){
 //     cout << "DemoMergeSort" << endl;
-//     ContainerElemType arr[] = {5, 2, 8, 1, 15, 9, 4, 7, 3, 6};
+//     ContainerElemType1 arr[] = {5, 2, 8, 1, 15, 9, 4, 7, 3, 6};
 //     auto n = sizeof(arr) / sizeof(arr[0]);
 
 //     MergeSort(arr, 0, n-1, &Mayor);
