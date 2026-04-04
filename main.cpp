@@ -1,5 +1,6 @@
 #include <iostream> // cout 
 #include "arit.h"   // suma, resta
+#include "util.h"
 
 // Antes: g++ -std=c++2b main.cpp arit.cpp -o main
 // Ahora                : make
@@ -10,6 +11,7 @@
 // El main() debe ser muy pero muy pequeñito
 int main() {
     std::cout << "HelloX FundProg-UNI!" << std::endl;
-    DemoAritmetica();
+    // DemoAritmetica();
+    DemoUtil();
     return 0;
 }

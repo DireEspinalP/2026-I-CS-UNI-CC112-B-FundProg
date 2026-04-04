@@ -16,8 +16,8 @@ T1 producto(T1 a, T1 b){
 }
 
 void DemoAritmetica(){
-    T1 a = 50.4;
-    T1 b = 20.2;
+    T1 a = 50;
+    T1 b = 20;
     T1 c = suma(a, b);
     cout << c << endl;
     //cout << "La suma de " << a << " y " << b << " es " << c << endl;

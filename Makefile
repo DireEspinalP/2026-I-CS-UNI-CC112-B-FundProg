@@ -3,7 +3,8 @@ CXXFLAGS = -std=c++2b -Wall -g -pthread # Añadido -pthread
 LDFLAGS = -pthread # Añadido -pthread
 
 TARGET = main
-SRCS = main.cpp arit.cpp
+SRCS = main.cpp arit.cpp \
+       util.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
