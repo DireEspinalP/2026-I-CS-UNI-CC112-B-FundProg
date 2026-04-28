@@ -7,7 +7,7 @@ SRCS = main.cpp arit.cpp \
        util.cpp \
 	   sorting.cpp \
 	   punteros.cpp \
-	   vector.cpp \
+	   vector.cpp cvector.cpp \
 	   matrix.cpp
 
 OBJS = $(SRCS:.cpp=.o)

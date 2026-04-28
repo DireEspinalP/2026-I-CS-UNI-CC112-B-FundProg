@@ -19,6 +19,7 @@ void ReadMatrix(TP **pMat, size_t rows, size_t cols,
         for (size_t j = 0; j < cols; j++){
             os << "Ingrese pMat[" << i << "][" << j << "]: ";
             is >> pMat[i][j];
+            // Eliminado: is.ignore(...)
         }
 }
 
