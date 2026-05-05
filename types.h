@@ -24,5 +24,6 @@ using UUTT1 = unsigned long long;
 #endif
 
 using TP = int;
+using TI = int;
 
 #endif // __TYPES_H__

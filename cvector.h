@@ -7,7 +7,7 @@
 using namespace std;
 
 template <typename T>
-class CVector{
+class CVector3{
     T     *m_pVect;
     size_t  m_nElem;
     public:
@@ -18,8 +18,8 @@ class CVector{
         // 4. Se llaman al declarar un objeto (cuando es estatico) o
         //    all crear un objeti dinamico con new
         // 5. Un constructor puede llamar a otro constructor   
-        CVector();
-        CVector(CVector<T> &other);
+        CVector3();
+        CVector3(CVector3<T> &other);
 
         // Destructor
         // 1. Tiene el mismo nombre que la clase pero con ~
@@ -29,7 +29,7 @@ class CVector{
         //    * Se llaman cuando el objeto sale de las {} donde fue creado 
         //    Si es dinamico (fue creado con new)
         //    * Se llama con delete
-        ~CVector();
+        ~CVector3();
 
         void CreateVector(const size_t n);
         void ReadVector(istream &is);
@@ -39,13 +39,13 @@ class CVector{
 };
 
 template <typename T>
-CVector<T>::CVector(){
+CVector3<T>::CVector3(){
     m_nElem = 0;
     m_pVect = nullptr;
 }
 
 template <typename T>
-CVector<T>::CVector(CVector &other){
+CVector3<T>::CVector3(CVector3 &other){
     m_nElem = other.m_nElem;
     CreateVector(m_nElem);
     for(size_t i = 0 ; i < other.m_nElem ; ++i)
@@ -53,18 +53,18 @@ CVector<T>::CVector(CVector &other){
 }
 
 template <typename T>
-CVector<T>::~CVector(){
+CVector3<T>::~CVector3(){
     DeleteVector();
 }
 
 template <typename T>
-void CVector<T>::CreateVector(const size_t n){
+void CVector3<T>::CreateVector(const size_t n){
     m_nElem = n;
     m_pVect = new T[m_nElem];
 }
 
 template <typename T>
-void CVector<T>::ReadVector(istream &is){
+void CVector3<T>::ReadVector(istream &is){
     for (size_t i = 0; i < m_nElem; i++){
         // cout << "Ingrese pVect[" << i << "]: ";
         is >> m_pVect[i];
@@ -72,25 +72,25 @@ void CVector<T>::ReadVector(istream &is){
 }
 
 template <typename T>
-void CVector<T>::Sort( bool (*pComp)(T, T) )
+void CVector3<T>::Sort( bool (*pComp)(T, T) )
 {
     BurbujaClasico(m_pVect, m_nElem, pComp);
 }
 
 template <typename T>
-void CVector<T>::PrintVector(ostream &os){
+void CVector3<T>::PrintVector(ostream &os){
     for (size_t i = 0; i < m_nElem; i++)
         os << m_pVect[i] << " ";
     os << endl;
 }
 
 template <typename T>
-void CVector<T>::DeleteVector(){
+void CVector3<T>::DeleteVector(){
     delete[] m_pVect;
     m_pVect = nullptr;
     m_nElem = 0;
 }
 
-void DemoCVector();
+void DemoCVector3();
 
 #endif // __CVECTOR_H__

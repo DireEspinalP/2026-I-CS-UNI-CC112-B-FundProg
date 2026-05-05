@@ -3,8 +3,8 @@
 #include "util.h"
 
 void DemoCVector(){
-    CVector<TP> v1;
-    CVector<TP> v2(v1);
+    CVector3<TP> v1;
+    CVector3<TP> v2(v1);
     size_t n;
     cout << "Ingrese nro de elementos: ";
     cin  >> n;
@@ -17,12 +17,12 @@ void DemoCVector(){
     v1.Sort(&Menor<TP>);
     v1.PrintVector(cout);
     
-    CVector<TP> *pV4 = nullptr;
+    CVector3<TP> *pV4 = nullptr;
     pV4 = &v1;
     pV4->Sort(&Mayor<TP>);
     v1.PrintVector(cout);
 
-    CVector<TP> *pV3 = new CVector<TP>();
+    CVector3<TP> *pV3 = new CVector3<TP>();
     pV3->CreateVector(5);
     pV3->ReadVector(cin);
     pV3->Sort(&Mayor<TP>);
