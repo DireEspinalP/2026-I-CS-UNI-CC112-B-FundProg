@@ -28,10 +28,13 @@ int main() {
     // DemoCVector();
 
     // DemoPointersVector2();
-    DemoPointersVector3();
-    DemoPointersVector4();
-    DemoPointersVector5();
+    // DemoPointersVector3();
+    // DemoPointersVector4();
+    // DemoPointersVector5();
     
-    DemoCMatrix1();
+    DemoPointersMatrix2();
+    DemoPointersMatrix3();
+    DemoPointersMatrix4();
+    DemoPointersMatrix5();
     return 0;
 }

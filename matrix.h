@@ -3,52 +3,22 @@
 #include <iostream>  // cout, cin, endl
 #include <cstddef>   // size_t
 #include "types.h"
+#include "matrix2.h"
+#include "matrix3.h"
+#include "matrix4.h"
+
 using namespace std;
 
-template<typename TP> 
-void CreateMatrix(TP **&pMat, size_t rows, size_t cols){
-    pMat = new TP*[rows];
-    for (size_t i = 0; i < rows; i++)
-        pMat[i] = new TP[cols];
-}
+void Creatematrix(TP *&pM, const size_t n,const size_t m);
+void Readmatrix(TP *&pM, const size_t n,const size_t m);
+void Printmatrix(TP *&pM, const size_t n,const size_t m);
+void Deletematrix(TP *&pM);
 
-template<typename TP> 
-void ReadMatrix(TP **pMat, size_t rows, size_t cols, 
-                ostream &os, istream &is){
-    for (size_t i = 0; i < rows; i++)
-        for (size_t j = 0; j < cols; j++){
-            os << "Ingrese pMat[" << i << "][" << j << "]: ";
-            is >> pMat[i][j];
-            // Eliminado: is.ignore(...)
-        }
-}
+void DemoPunteros2Matrix();
 
-template<typename TP> 
-void TransformarMatriz(TP **pMat, size_t rows, size_t cols){
-    for (size_t i = 0; i < rows; i++)
-        for (size_t j = 0; j < cols; j++)
-            pMat[i][j] += 1;
-}
-
-template<typename TP> 
-void PrintMatrix(TP **pMat, size_t rows, size_t cols,
-                 ostream &os){
-    os << rows << " " << cols << endl;
-    for (size_t i = 0; i < rows; i++){
-        for (size_t j = 0; j < cols; j++)
-            os << pMat[i][j] << " ";
-        os << endl;
-    }
-}
-
-template<typename TP> 
-void DeleteMatrix(TP **&pMat, size_t rows){
-    for (size_t i = 0; i < rows; i++)
-        delete[] pMat[i];
-    delete[] pMat;
-    pMat = nullptr;
-}
-
-void DemoMatrix1();
+void DemoPointersMatrix2();
+void DemoPointersMatrix3();
+void DemoPointersMatrix4();
+void DemoPointersMatrix5();
 
 #endif // __MATRIX_H__

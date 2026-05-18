@@ -2,7 +2,6 @@
 #define __ARRAY2_H__
 #include <functional>
 #include <iostream>
-#include "array2.h"
 #include "array3.h"
 #include "array4.h"
 
