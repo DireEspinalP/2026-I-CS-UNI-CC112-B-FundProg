@@ -8,7 +8,8 @@ SRCS = main.cpp arit.cpp \
 	   sorting.cpp \
 	   punteros.cpp \
 	   vector.cpp cvector.cpp \
-	   matrix.cpp
+	   matrix.cpp \
+	   $(wildcard shapes/*.cpp)
 
 OBJS = $(SRCS:.cpp=.o)
 
