@@ -9,5 +9,5 @@ public:
     Triangle(Side base, Side height, const string& name = "Triangle");
     Area GetArea() const override;
 };
-
+///
 #endif // __TRIANGLE_H__
