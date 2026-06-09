@@ -8,7 +8,7 @@
 #include "../types.h"
 #include "../foreach.h"
 #include "basetrait.h"
-
+//
 template <typename Container>
 class vector_forward_iterator : public general_iterator<Container, vector_forward_iterator<Container>> {
 public:
