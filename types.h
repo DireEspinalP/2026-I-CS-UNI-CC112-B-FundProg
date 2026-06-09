@@ -1,5 +1,7 @@
 #ifndef __TYPES_H__
 #define __TYPES_H__
+#include <string>
+using namespace std;
 
 // Aritmetica
 using T1  = int;
@@ -25,5 +27,9 @@ using UUTT1 = unsigned long long;
 
 using TP = int;
 using TI = int;
+
+using Ref = long;
+using TD = double;
+using TS = string;
 
 #endif // __TYPES_H__

@@ -8,6 +8,7 @@
 #include "cmatrix.h"
 #include "cvector.h"
 #include "shapes/shapes.h"
+#include "DemoVector.h"
 
 // Antes: g++ -std=c++2b main.cpp arit.cpp -o main
 // Ahora                : make
@@ -34,6 +35,9 @@ int main() {
     // DemoPointersVector5();
     
     // DemoCMatrix1();
-    DemoShapes();
+    // DemoShapes();
+
+    DemoVector();
+    DemoConcurrentVector();
     return 0;
 }
