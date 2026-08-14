@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <utility>
 using namespace std;
-
+ 
 template <typename Container, class IteratorBase> // 
 class general_iterator
 {public:

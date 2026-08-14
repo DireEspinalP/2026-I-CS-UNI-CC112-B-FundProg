@@ -4,7 +4,6 @@
 #include <utility> // forward
 
 using namespace std;
-
 template <typename Iterator, typename Func, typename... Args>
 void ForEach(Iterator beg, Iterator end, Func func, Args &&... args){
     for (auto it = beg; it != end; ++it)

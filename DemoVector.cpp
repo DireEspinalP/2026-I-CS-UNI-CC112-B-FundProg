@@ -48,7 +48,7 @@ void DemoVector(){
     v1.ForEach(AddOne<TI>);
     v1.ForEach(Print<TI>, cout);
     cout << endl;
-    
+     
     v1.ForEach(AddX<TI>, 10);
     v1.ForEach(Print<TI>, cout);
     cout << endl;
@@ -57,7 +57,7 @@ void DemoVector(){
     v1.ForEach(Print<TI>, cout);
     cout << endl << a << endl;
 
-    // Vector<TI>::forward_iterator it = v1.FirstThat(IsMultipleOf<TI>, 21);
+     //Vector<TI>::forward_iterator it = v1.FirstThat(IsMultipleOf<TI>, 21);
     auto it = v1.FirstThat(IsMultipleOf<TI>, 21);
     if (it != v1.end())
         cout << "Primer multiplo de 21: " << *it << endl;
