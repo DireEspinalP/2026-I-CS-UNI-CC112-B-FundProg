@@ -1,0 +1,8 @@
+*.o
+main
+main.exe
+*.dSYM
+*.DS_Store
+*.swp
+*.swo
+*.txt
